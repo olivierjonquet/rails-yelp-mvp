@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 class="text-center">Do you know a good restaurant ?</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <%= simple_form_for @restaurant do |f| %>
+        <%= f.input :name, input_html: { placeholder: "Tour d'Argent" } %>
+        <%= f.input :address, input_html: { placeholder: "32 rue de la tour d'Argent, 75005 Paris" } %>
+        <%= f.input :phone_number, input_html: { placeholder: "01 33 22 56 18" } %>
+        <%= f.input :category, as: :select, collection: Restaurant::CATEGORIES, include_blank:  "Select a category" %>
+        <%= f.submit class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+

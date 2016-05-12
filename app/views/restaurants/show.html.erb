@@ -1,0 +1,35 @@
+
+<% content_for(:title) do %>
+  <%= @restaurant.name %> is on Olivier Advice
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1><%= @restaurant.name %></h1>
+      <p>
+        <%= @restaurant.address %>
+      </p>
+      <p>
+        tel: <%= @restaurant.phone_number %>
+      </p>
+      <p>
+        category: <%= @restaurant.category %>
+      </p>
+      <%= link_to "Back", restaurants_path, class: "btn btn-primary" %>
+      <%= link_to "Add a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+      <hr>
+      <p>
+        <% @restaurant.reviews.each_index do |i| %>
+      </p>
+      <p>
+        <em><%= @restaurant.reviews[i].content %></em>
+      </p>
+      <p>
+        <%= "Rating: " + "*" * @restaurant.reviews[i].rating %>
+      </p>
+      <hr>
+        <% end %>
+    </div>
+  </div>
+</div>
